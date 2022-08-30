@@ -22,9 +22,9 @@ const getData = async () => {
     })
 
     const data = await res.data.data.productos;
-
+/*
     fs.writeFile("public/productos.json", JSON.stringify({ "status": 200, "fecha": new Date().toDateString(), "data": { "productos": data } }), err => { err ? console.log(err) : console.log("productos.json created") })
-
+*/
 
     const nextProductPromises = data.map(async producto => {
 
