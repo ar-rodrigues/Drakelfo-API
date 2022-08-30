@@ -21,12 +21,12 @@ const getData = async () => {
       "customer": customer, "key": key
     })
 
-    const data = await res.data;
+    const data = await res.data.data.productos;
 
-    fs.writeFile("public/productos.json", JSON.stringify({ "status": 200, "fecha": new Date().toDateString(), "data": { "productos": data.data.productos } }), err => { err ? console.log(err) : console.log("productos.json created") })
+    fs.writeFile("public/productos.json", JSON.stringify({ "status": 200, "fecha": new Date().toDateString(), "data": { "productos": data } }), err => { err ? console.log(err) : console.log("productos.json created") })
 
 
-    const nextProductPromises = data.data.productos.map(async producto => {
+    const nextProductPromises = data.map(async producto => {
 
       let sku = producto.sku;
 
