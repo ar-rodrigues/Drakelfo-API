@@ -2,10 +2,10 @@
   "name": "just-data",
   "version": "1.0.0",
   "description": "",
-  "main": "nodemon server.js",
+  "main": " index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "index.js"
   },
   "keywords": [],
   "author": "",
