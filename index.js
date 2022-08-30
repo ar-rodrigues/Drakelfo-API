@@ -9,7 +9,6 @@ const checkMissingImg = require('./operations/checkMissingImg.js');
 const customer = process.env['CUSTOMER']
 const key = process.env['KEY']
 
-
 app.use(cors())
 app.use(express.static('public'))
 app.get('/', (req, res) => {
