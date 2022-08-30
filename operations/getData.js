@@ -11,7 +11,7 @@ const key = process.env['KEY']
 
 const getData = async () => {
 
-  if (nextProductsJson.fecha == new Date().toDateString()) {
+  if (nextProductsJson.fecha == undefined) {
     return nextProductsJson;
   }
 
