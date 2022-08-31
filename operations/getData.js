@@ -18,15 +18,15 @@ const getData = async () => {
   try {
     // Get data from de API
     const res = await axios.post('https://pchm.to-do.mx/extcust/getprodlist/', {
-      "customer": customer, "key": key
+      "customer": "19043", "key": "Kaiser27"
     })
 
-    const data = await res.data.data.productos;
+    const data = await res.data;
 /*
     fs.writeFile("public/productos.json", JSON.stringify({ "status": 200, "fecha": new Date().toDateString(), "data": { "productos": data } }), err => { err ? console.log(err) : console.log("productos.json created") })
 */
 
-    const nextProductPromises = data.map(async producto => {
+    const nextProductPromises = data.data.productos.map(async producto => {
 
       let sku = producto.sku;
 
