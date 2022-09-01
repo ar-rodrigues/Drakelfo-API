@@ -9,6 +9,7 @@ require('dotenv').config()
 const customer = process.env.CUSTOMER
 const key = process.env.KEY
 
+console.log(customer)
 
 const getData = async () => {
 
