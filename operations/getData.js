@@ -6,8 +6,8 @@ const nextProductsJson = require("../public/nextProducts.json");
 const urlExistsPromised = require('./urlExistsPromised.js');
 require('dotenv').config()
 
-const customer = process.env['CUSTOMER']
-const key = process.env['KEY']
+const customer = process.env.CUSTOMER
+const key = process.env.KEY
 
 
 const getData = async () => {
