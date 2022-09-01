@@ -4,6 +4,7 @@ const productsJson = require("../public/productos.json");
 const nextProductsJson = require("../public/nextProducts.json");
 
 const urlExistsPromised = require('./urlExistsPromised.js');
+require('dotenv').config()
 
 const customer = process.env['CUSTOMER']
 const key = process.env['KEY']
@@ -18,10 +19,11 @@ const getData = async () => {
   try {
     // Get data from de API
     const res = await axios.post('https://pchm.to-do.mx/extcust/getprodlist/', {
-      "customer": "19043", "key": "Kaiser27"
+      "customer": customer, "key": key
     })
 
     const data = await res.data;
+    console.log(data.status)
 /*
     fs.writeFile("public/productos.json", JSON.stringify({ "status": 200, "fecha": new Date().toDateString(), "data": { "productos": data } }), err => { err ? console.log(err) : console.log("productos.json created") })
 */
