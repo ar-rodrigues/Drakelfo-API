@@ -73,7 +73,7 @@ console.log(data.data.productos)
     return await { "status": 200, "fecha": new Date().toDateString(), "data": { "productos": nextProducts } };
 
   } catch (e) {
-    console.error("What?", e);
+    console.error(`What? ${data}`, e);
   }
 }
 
