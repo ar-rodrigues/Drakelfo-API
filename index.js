@@ -11,6 +11,8 @@ require('dotenv').config()
 const customer = process.env.CUSTOMER
 const key = process.env.KEY
 
+console.log(customer)
+
 
 app.use(cors())
 app.use(express.static('public'))
