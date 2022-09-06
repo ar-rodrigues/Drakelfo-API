@@ -70,7 +70,7 @@ console.log(data.data.productos)
 
     fs.writeFile("public/nextProducts.json", JSON.stringify({ "status": 200, "fecha": new Date().toDateString(), "data": { "productos": nextProducts } }), err => { err ? console.log(err) : console.log("nextProducts.json created") })
 
-    return await { "status": 200, "fecha": new Date().toDateString(), "data": { "productos": nextProducts } };
+    return await { "status": 200, "fecha": new Date().toDateString(), "data": { "productos": data } };
 
   } catch (e) {
     console.error(`What? ${data}`, e);
