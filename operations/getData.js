@@ -9,8 +9,7 @@ require('dotenv').config()
 const customer = process.env.CUSTOMER
 const key = process.env.KEY
 
-console.log(customer)
-console.log(process.env.KEY)
+
 
 const getData = async () => {
 
@@ -21,7 +20,7 @@ const getData = async () => {
   try {
     // Get data from de API
     const res = await axios.post('https://pchm.to-do.mx/extcust/getprodlist/', {
-      "customer": customer, "key": key
+      "customer": "19043", "key": "Kayser27"
     })
 
     const data = await res.data;
