@@ -24,11 +24,10 @@ const getData = async () => {
     })
 
     const data = await res.data;
-    console.log(data.status)
-/*
+    console.log(data)
+
     fs.writeFile("public/productos.json", JSON.stringify({ "status": 200, "fecha": new Date().toDateString(), "data": { "productos": data } }), err => { err ? console.log(err) : console.log("productos.json created") })
-*/
-console.log(data.data.productos)
+
 
     const nextProductPromises = data.data.productos.map(async producto => {
 
@@ -70,7 +69,7 @@ console.log(data.data.productos)
 
     fs.writeFile("public/nextProducts.json", JSON.stringify({ "status": 200, "fecha": new Date().toDateString(), "data": { "productos": nextProducts } }), err => { err ? console.log(err) : console.log("nextProducts.json created") })
 
-    return await { "status": 200, "fecha": new Date().toDateString(), "data": { "productos": data } };
+    return await { "status": 200, "fecha": new Date().toDateString(), "data": { "productos": nextProducts } };
 
   } catch (e) {
     console.error(`What? ${data}`, e);
