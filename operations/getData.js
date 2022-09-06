@@ -10,6 +10,7 @@ const customer = process.env.CUSTOMER
 const key = process.env.KEY
 
 console.log(customer)
+console.log(process.env.KEY)
 
 const getData = async () => {
 
