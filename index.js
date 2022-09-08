@@ -26,7 +26,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.get('/api/products', async (req, res) => {
   const products = await getData()
 
-  res.json(products)
+  if(products.status != "200"){
+    res.json(products.message)
+  }else{
+    res.json(products)
+  }
+
 })
 
 // GET all missing image products
@@ -44,6 +49,6 @@ app.get('/api/missingImg', async (req, res) => {
 
 
 
-const listener = app.listen(process.env.PORT, () => {
+const listener = app.listen(process.env.PORT | 3000, () => {
   console.log('Your app is listening on port ' + listener.address().port)
 })

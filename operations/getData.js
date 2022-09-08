@@ -23,12 +23,19 @@ const getData = async () => {
       "customer": "19043", "key": "Kayser27"
     })
 
-    const data = await res.data;
-    console.log(data)
+    const data = productsJson //await res.data;
+    //console.log(data)
 
-    fs.writeFile("public/products.json", JSON.stringify({ "status": 200, "fecha": new Date().toDateString(), "data": { "productos": data } }), err => { err ? console.log(err) : console.log("products.json created") })
+    if(await data.status != "200"){
+      return data;
+    }else{
 
+    fs.writeFile("public/productos.json", JSON.stringify({ "status": 200, "fecha": new Date().toDateString(), "data": { "productos": data.data.productos } }), err => { err ? console.log(err) : console.log("products.json created") })
 
+    if(productsJson.fecha == nextProductsJson.fecha ){
+      console.log("Data up to date")
+      return nextProductsJson;
+    }
     const nextProductPromises = data.data.productos.map(async producto => {
 
       let sku = producto.sku;
@@ -70,6 +77,7 @@ const getData = async () => {
     fs.writeFile("public/nextProducts.json", JSON.stringify({ "status": 200, "fecha": new Date().toDateString(), "data": { "productos": nextProducts } }), err => { err ? console.log(err) : console.log("nextProducts.json created") })
 
     return await { "status": 200, "fecha": new Date().toDateString(), "data": { "productos": nextProducts } };
+  }
 
   } catch (e) {
     console.error(`What?`, e);
