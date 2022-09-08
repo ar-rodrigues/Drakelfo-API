@@ -49,6 +49,6 @@ app.get('/api/missingImg', async (req, res) => {
 
 
 
-const listener = app.listen(process.env.PORT | 3000, () => {
+const listener = app.listen(process.env.PORT | 9000, () => {
   console.log('Your app is listening on port ' + listener.address().port)
 })
