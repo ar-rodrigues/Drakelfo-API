@@ -30,7 +30,7 @@ const getData = async () => {
       return data;
     }else{
 
-    fs.writeFile("public/productos.json", JSON.stringify({ "status": 200, "fecha": new Date().toDateString(), "data": { "productos": data.data.productos } }), err => { err ? console.log(err) : console.log("products.json created") })
+    //fs.writeFile("public/productos.json", JSON.stringify({ "status": 200, "fecha": new Date().toDateString(), "data": { "productos": data.data.productos } }), err => { err ? console.log(err) : console.log("products.json created") })
 
     if(productsJson.fecha == nextProductsJson.fecha ){
       console.log("Data up to date")
