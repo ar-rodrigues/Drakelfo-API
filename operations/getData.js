@@ -23,8 +23,8 @@ const getData = async () => {
       "customer": "19043", "key": "Kayser27"
     })
 
-    const data = productsJson //await res.data;
-    //console.log(data)
+    const data = await res.data;
+    console.log(data)
 
     if(await data.status != "200"){
       return data;
