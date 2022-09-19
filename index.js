@@ -26,12 +26,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // GET all products with images
 app.get('/api/products', async (req, res) => {
   const products = await getData()
-
-  if (await products.status != "200") {
-    res.json(products.message)
-  } else {
-    res.json(products)
-  }
+  
+  res.json(products)
 
 })
 
