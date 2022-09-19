@@ -11,11 +11,12 @@ require('dotenv').config()
 const customer = process.env.CUSTOMER
 const key = process.env.KEY
 
+const customerTest = process.env.CUSTOMER_TEST
+const keyTest = process.env.KEY_TEST
+
 app.use(cors())
 app.use(express.static('public'))
 app.get('/', (req, res) => {
-  console.log(customer)
-
   res.sendFile(__dirname + '/views/index.html')
 });
 
@@ -26,9 +27,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.get('/api/products', async (req, res) => {
   const products = await getData()
 
-  if(products.status != "200"){
+  if (products.status != "200") {
     res.json(products.message)
-  }else{
+  } else {
     res.json(products)
   }
 
