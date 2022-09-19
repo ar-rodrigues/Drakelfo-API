@@ -10,6 +10,8 @@ const customer = process.env.CUSTOMER
 const key = process.env.KEY
 const customerTest = process.env.CUSTOMER_TEST
 const keyTest = process.env.KEY_TEST
+const urlTest = "https://pchtest.to-do.mx/extcust/getprodlist/"
+const url = "https://pchm.to-do.mx/extcust/getprodlist/"
 
 
 const getData = async () => {
@@ -20,8 +22,8 @@ const getData = async () => {
 
   try {
     // Get data from de API
-    const res = await axios.post('https://pchm.to-do.mx/extcust/getprodlist/', {
-      "customer": customerTest, "key": keyTest
+    const res = await axios.post(urlTest, {
+      "customer": "16950", "key": "123321"
     })
 
     const data = await res.data;

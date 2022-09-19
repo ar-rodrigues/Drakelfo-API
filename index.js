@@ -10,7 +10,6 @@ require('dotenv').config()
 
 const customer = process.env.CUSTOMER
 const key = process.env.KEY
-
 const customerTest = process.env.CUSTOMER_TEST
 const keyTest = process.env.KEY_TEST
 
