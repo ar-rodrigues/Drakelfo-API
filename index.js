@@ -16,6 +16,7 @@ const keyTest = process.env.KEY_TEST
 app.use(cors())
 app.use(express.static('public'))
 app.get('/', (req, res) => {
+  console.log("API STARTED")
   res.sendFile(__dirname + '/views/index.html')
 });
 
@@ -26,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.get('/api/products', async (req, res) => {
   const products = await getData()
 
-  if (products.status != "200") {
+  if (await products.status != "200") {
     res.json(products.message)
   } else {
     res.json(products)
