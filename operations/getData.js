@@ -23,13 +23,13 @@ const getData = async () => {
 
     const data = await res.data;
     console.log(data.status)
-/*
+
     fs.writeFile(
-      "public/nextProducts.json", 
+      "public/productos.json",
       JSON.stringify({
-        ...data, "fecha":new Date().toDateString()
+        ...data, fecha: new Date().toDateString()
       }), err => { err ? console.log(err) : console.log("productos.json created") })
-*/
+
     if (await data.status != "200") {
       return data;
     } else {

@@ -35,8 +35,6 @@ app.get('/api/products', async (req, res) => {
 app.get('/api/missingImg', async (req, res) => {
   const data = await getData()
 
-  //console.log(data)
-
   const listImgMissing = await checkMissingImg(data.data.productos)
 
   return res.json(listImgMissing);
