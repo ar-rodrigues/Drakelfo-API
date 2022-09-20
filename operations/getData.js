@@ -1,6 +1,5 @@
 const axios = require('axios');
 const fs = require('fs');
-const nextProductsJson = require("../public/nextProducts.json");
 
 const urlExistsPromised = require('./urlExistsPromised.js');
 require('dotenv').config()
@@ -15,11 +14,7 @@ const url = "https://pchm.to-do.mx/extcust/getprodlist/"
 
 const getData = async () => {
   console.log("GETTING PRODUCTS")
-/*
-  if (nextProductsJson.fecha == undefined) {
-    return nextProductsJson;
-  }
-*/
+
   try {
     // Get data from de API
     const res = await axios.post(urlTest, {
@@ -28,13 +23,13 @@ const getData = async () => {
 
     const data = await res.data;
     console.log(data.status)
-
+/*
     fs.writeFile(
       "public/nextProducts.json", 
       JSON.stringify({
         ...data, "fecha":new Date().toDateString()
       }), err => { err ? console.log(err) : console.log("productos.json created") })
-
+*/
     if (await data.status != "200") {
       return data;
     } else {
