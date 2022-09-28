@@ -17,8 +17,8 @@ const getData = async () => {
 
   try {
     // Get data from de API
-    const res = await axios.post(urlTest, {
-      "customer": customerTest, "key": keyTest
+    const res = await axios.post(url, {
+      "customer": customer, "key": key
     })
 
     const data = await res.data;
