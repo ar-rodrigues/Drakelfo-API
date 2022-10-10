@@ -5,8 +5,8 @@ const bodyParser = require('body-parser')
 
 const getData = require('./operations/getData.js');
 const checkMissingImg = require('./operations/checkMissingImg.js');
-require('dotenv').config()
-
+require('dotenv').config();
+const nextProducts = require('./public/nextProducts.json');
 
 const customer = process.env.CUSTOMER
 const key = process.env.KEY
@@ -26,15 +26,18 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // GET all products with images
 app.get('/api/products', async (req, res) => {
   const products = await getData()
-  
+
   res.json(products)
 
 })
 
 // GET all missing image products
 app.get('/api/missingImg', async (req, res) => {
-  const data = await getData()
-
+  const data = nextProducts;
+  const today = new Date().toDateString();
+  if (data.fecha == today) {
+    console.log(data.fecha)
+  }
   const listImgMissing = await checkMissingImg(data.data.productos)
 
   return res.json(listImgMissing);
